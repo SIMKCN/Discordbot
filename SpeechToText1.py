@@ -91,8 +91,9 @@ def anleitung():
     lb.insert(8, "Dazu werden während des transkribieren Audio Chunks erstellt, jeweils versähen mit dem Namen des Chunks.")
     lb.insert(9, "Diese Chunks werden im selben Ordner in der sich auch das Programm befindet gespeichert.")
     lb.insert(10, "Zusätzlich wird der Text in der Datei ""Transscript.txt"" gespeichert welche auch im Ordner des Programms gespeichert wird.")
-    lb.insert(11, "Begriffserklärung:")
-    lb.insert(12, "Error:Eine Stelle wo keine Sprache erkannt worden ist. (Kann bei langem Atmen o.ä auftreten)")
+    lb.insert(11, "Dieses Script muss im Terminal ausgeführt werden")
+    lb.insert(12, "Begriffserklärung:")
+    lb.insert(13, "Error:Eine Stelle wo keine Sprache erkannt worden ist. (Kann bei langem Atmen o.ä auftreten)")
  
     root2.mainloop()
 
