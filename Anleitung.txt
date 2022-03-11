@@ -1,0 +1,19 @@
+Anleitung:
+Vorinforamtionen:
+Achtung! Das Programm funktioniert nur mit .wav Datein!!!
+Sollten sie andere Audio Formate nutzen könnte es zu Problemen kommen.
+Das Programm benötigt eine Internetverbindung da es auf eine Datenbank zugreift.
+Der Transscripter arbeitet nicht 100% perfekt und hat Probleme mit Dialekte.
+Er kann nicht zwischen Stimmen unterscheiden.
+Nach Nutzung sollte der Text nochmal korrigiert werden.
+Dazu werden während des transkribieren Audio Chunks erstellet, jeweils versähen mit dem Namen des Chunks.
+Diese Chunks werden im selben Ordner in der sich auch das Programm befindet gespeichert.
+Zusätzlich wird der Text in der Datei "Transscript.txt" gespeichert welche auch im ordner des Programms gespeichert wird.
+		
+		
+Begriffserklärung:
+	Error:Eine Stelle wo keine Sprache erkannt worden ist. (Kann bei langem Atmen o.ä. auftreten)
+			
+			
+			
+		
