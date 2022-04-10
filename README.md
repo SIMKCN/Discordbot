@@ -2,10 +2,5 @@
 Dieses Programm verwandelt Sprache in Text.
 
 This script translates speech to text. Please use "SpeechToText1.py" its the better version.
-<<<<<<< HEAD
-
 This script can be used by everyone
-
-=======
-Everyone can use this script.
 
