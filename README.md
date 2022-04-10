@@ -8,4 +8,4 @@ This script can be used by everyone
 
 =======
 Everyone can use this script.
->>>>>>> b5e2e37c7b2e6b22624545847a5732619320d881
+
