@@ -172,7 +172,7 @@ class MyClient(discord.Client):
             time.sleep(7)
             await message.channel.send("Die Aktuelle Version ist: 5.2 mit aktuell 219 Zeilen Code")
             await message.channel.send("Ja das ist jetzt auch genug Text")
-            
+            logging.info("[!develop]", message.author, str(when))    
 
         elif message.content.startswith("!Münzwurf"):
             f = randint(0, 1)
@@ -183,30 +183,24 @@ class MyClient(discord.Client):
                 results = "Zahl"
 
             await message.channel.send("Das Ergebnis ist:" + results)
+            logging.info("[!Münzwurf]", message.author, str(when))
+            logging.info("[!Münzwurf]", "[results]", str(when))
 
-
-
-
-        #nachricht = message.content.split()
-        #for i in nachricht:
-            #if i in no_words:
-                #await message.channel.send("Dies ist eine Verwahrung, bitte sei nett im Chat ansonsten gibt es ein Bann", delete_after=60.1)
-                #await client.delete_message(message)
-                #print(str(user) + "schrieb" + message.content)
 
         elif message.content.startswith("!meetings"):
             
             meet = message.content.split(' ')[1]
             meet2 = message.content.split('-')[2]
-            await message.channel.send(author ," hat ein Meeting festgelegt, es findet um " ,meet ,"statt. Thema: ", meet2)
+            await message.channel.send(author ," hat ein Meeting festgelegt, es findet um " , meet,"statt. Thema: ", meet2)
             await message.pin()
-           
+            logging.info("[!meetings]", message.author, str(when))           
+            logging.info("[!meetings] Zeit:", meet, " Thema: ", meet2)
 
         else:
             print("Fehler oder kein Befehl" + str(when))
 
         print("Nachricht von " + str(message.author) + ":" + str(message.content) + str(when))
-
+        
 
 
           # zeigt im Chat wer auf was reagiert mit einem emoji hat
@@ -215,23 +209,21 @@ class MyClient(discord.Client):
            await reaction.message.channel.send("Gezählt: " + str(reaction.count))
            await print(reaction.message.channel.send(str(user) + " reacted on " + reaction.message.content + " with " + reaction.emoji))
            await print(reaction.message.channel.send("Gezählt: " + str(reaction.count)))
+           logging.info("[on_reaction_add]")
 
 
-
-# Server Clock
+# Server Main
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     async def on_message_delete(self, message, when, user):
         print("~Gelöschte Nachricht " + "von" + str(user) + "Nachricht: " + message.content + "wurde geschrieben um: "  + str(when) + "~")
-       
+        logging.info("[deleted]", str(user), message.content, str(when))
 
         # ende
         #   zeigt bearbeitete Nachrichten an
     async def on_message_edit(self, before, after):
         print("~Changed message " + before.content + " to " + after.content + "~")
-        # ende
-        
-        # ende
+        logging.info("[change of message]", before.content, after.content)
         
  # Wird alles in der Console angezeigt
     async def on_member_join(self, member, when, before, after):                ## diese funktion zeigt dir Infos über spieler an die gerade gejoined sind
@@ -246,18 +238,17 @@ class MyClient(discord.Client):
             print(str(before.desktop_status))
             print(str(before.web_status))
             print(str(before.roles))
-        
+        logging.info("[member_joined]", str(when), str(nick))
 #   wenn jemand dem server joined wird diese Nachricht geschickt
         await message.channel.send(str(member) + "ist dem Server beigetreten.")
         await member.send("Willkommen auf dem Server derschreibe !help in denn Chat  um heraus zufinden was es für Befehle  gibt.")
         await member.send(" MFG Bot ")
-        
 
 # wenn jemand denn server verlässt wird diese Nachricht gesendet
     async def on_member_remove(self, member, when):
         print(member + " hat denn Server verlassen!" + str(when))
         await message.channel.send(member + "hat denn Server verlassen")
-        
+        logging.info("[member_left]", member, str(when))
         
 
 # wenn user sich updatet wird das alles angezeigt
@@ -273,7 +264,7 @@ class MyClient(discord.Client):
         
 
 
-# Clock ende
+# main ende
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 client = MyClient()
 client.run("") # Token hier einfügen
